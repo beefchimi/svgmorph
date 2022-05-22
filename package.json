@@ -1,36 +1,21 @@
 {
-  "name": "template-common",
+  "name": "svgmorph",
   "version": "0.0.1",
-  "description": "A common web project",
+  "description": "Prototype for animating SVGs",
   "author": "Curtis Dulmage",
   "license": "ISC",
   "keywords": [
-    "web",
-    "development"
+    "SVG",
+    "Morph",
+    "Animation"
   ],
-  "homepage": "https://github.com/beefchimi/template-common#readme",
+  "homepage": "https://github.com/beefchimi/svgmorph#readme",
   "bugs": {
-    "url": "https://github.com/beefchimi/template-common/issues"
+    "url": "https://github.com/beefchimi/svgmorph/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beefchimi/template-common.git"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "files": [
-    "dist"
-  ],
-  "types": "./dist/index.d.ts",
-  "main": "./dist/template-common.umd.js",
-  "module": "./dist/template-common.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/template-common.es.js",
-      "require": "./dist/template-common.umd.js"
-    }
+    "url": "git+https://github.com/beefchimi/svgmorph.git"
   },
   "engines": {
     "node": ">=16.0.0"
@@ -41,24 +26,32 @@
   "prettier": "@beefchimi/prettier-config",
   "scripts": {
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "test": "vitest",
-    "coverage": "vitest --coverage --run",
+    "test": "echo 'There is no testing suite set up for this app.'",
     "build": "npm run clean && tsc && vite build",
     "clean": "rm -rf coverage && rm -rf dist",
-    "nuke": "npm run clean && rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force",
-    "report": "changeset",
-    "release": "npm run build && changeset publish"
+    "start": "vite",
+    "preview": "vite preview",
+    "nuke": "npm run clean && rm -rf node_modules && rm -rf package-lock.json && npm cache clean --force"
   },
   "devDependencies": {
     "@beefchimi/browserslist-config": "^0.0.9",
     "@beefchimi/eslint-plugin": "^0.0.9",
     "@beefchimi/prettier-config": "^0.0.9",
     "@beefchimi/typescript-config": "^0.0.9",
-    "@changesets/changelog-github": "^0.4.2",
-    "@changesets/cli": "^2.19.0",
-    "@types/node": "^17.0.10",
-    "vite": "^2.7.13",
-    "vite-plugin-dts": "^0.9.9",
-    "vitest": "^0.1.27"
+    "@types/node": "^17.0.35",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@vitejs/plugin-react": "^1.3.2",
+    "sass": "^1.52.1",
+    "vite": "^2.9.9",
+    "vite-plugin-svgr": "^2.1.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
