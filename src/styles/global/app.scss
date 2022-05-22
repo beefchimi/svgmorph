@@ -1,0 +1,14 @@
+::selection {
+  color: var(--color-text);
+  background-color: var(--color-text-interactive);
+}
+
+html {
+  background-color: var(--color-surface-bg);
+}
+
+html,
+body,
+#ReactRoot {
+  height: 100%;
+}
