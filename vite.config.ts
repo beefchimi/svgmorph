@@ -1,54 +1,29 @@
-import fs from 'fs';
 import {defineConfig} from 'vite';
-import dtsPlugin from 'vite-plugin-dts';
-import type vitestTypes from 'vitest';
-
-const BUILD_PATHS = {
-  dtsPluginOutput: '/dist/src/',
-  dtsFixedOutput: '/dist/types/',
-  dtsEntryFile: './dist/index.d.ts',
-};
-
-const DTS_ENTRY_CONTENT = `export * from './types/index';`;
-
-const testConfig: vitestTypes.InlineConfig = {
-  global: true,
-};
+import pluginReact from '@vitejs/plugin-react';
+import pluginSvgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  test: testConfig,
   plugins: [
-    dtsPlugin({
-      beforeWriteFile(filePath, content) {
-        return {
-          filePath: filePath.replace(
-            BUILD_PATHS.dtsPluginOutput,
-            BUILD_PATHS.dtsFixedOutput,
-          ),
-          content,
-        };
-      },
-      afterBuild() {
-        fs.promises
-          .writeFile(BUILD_PATHS.dtsEntryFile, DTS_ENTRY_CONTENT)
-          .then((_success) =>
-            // eslint-disable-next-line no-console
-            console.log('The build types have been generated.'),
-          )
-          .catch(() =>
-            // eslint-disable-next-line no-console
-            console.error('There was a problem processing the build.'),
-          );
-      },
+    pluginReact(),
+    pluginSvgr({
+      // TODO: Configure this plugin
+      // https://react-svgr.com/docs/options/
+      // https://react-svgr.com/docs/configuration-files/
+      // https://github.com/svg/svgo#configuration
+      // svgrOptions: {},
     }),
   ],
-  build: {
-    lib: {
-      entry: 'src/index.ts',
-      name: 'Template Common',
-      fileName: (format) => `template-common.${format}.js`,
+  resolve: {
+    alias: {
+      // NOTE: This might require ignoring `@typescript-eslint/naming-convention`.
+      // '@/': path.resolve(__dirname, 'src'),
     },
-    // rollupOptions: {},
-    minify: false,
+  },
+  css: {
+    modules: {
+      // If we want to remove the redundancy of the `folder` + base class name,
+      // we could write a function `generateScopedName()` function.
+      generateScopedName: '[folder]_[local]_[hash:base64:6]',
+    },
   },
 });

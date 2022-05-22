@@ -1,19 +1,20 @@
 {
-  "extends": "@beefchimi/typescript-config/library.json",
+  "extends": "@beefchimi/typescript-config/application.json",
+  // TODO: Consider moving all of this into a `react-modern.json` config.
   "compilerOptions": {
-    "baseUrl": "./src",
-    "rootDir": ".",
-    "types": ["vitest/global"],
-    "declarationDir": "dist/types",
-    "declarationMap": false,
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "skipLibCheck": false,
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "jsx": "react-jsx",
+    "types": ["vite/client", "vite-plugin-svgr/client"]
   },
-  "include": ["./src/**/*"],
-  "exclude": ["./node_modules/**/*"]
+  "include": ["src"],
+  // Remove custom definitions from `typescript-configs`
+  // and allow Vite to provide these.
+  "files": []
 }
