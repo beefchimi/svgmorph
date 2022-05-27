@@ -1,0 +1,30 @@
+// @use '../../styles/shared' as *;
+
+$audio-wave-foreground-color: #4081ff;
+$audio-wave-background-color: #2b40ff;
+
+$audio-wave-top-opacity-min: 0.4;
+$audio-wave-top-opacity-max: 0.6;
+
+.SvgWave {
+  width: 100%;
+  height: 100%;
+  color: $audio-wave-foreground-color;
+  fill: $audio-wave-background-color;
+
+  path {
+    transform-origin: center center;
+    transition: all ease-in-out 200ms;
+  }
+}
+
+.Baseline {
+}
+
+.ForegroundBottom {
+  transform: scaleY(-1);
+}
+
+.BackgroundTop {
+  transform: scaleY(-1);
+}

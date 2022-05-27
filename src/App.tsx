@@ -1,4 +1,6 @@
-import {Frame, Header, Main, Footer} from './components';
+import {Frame, Header, Main, Footer, SvgWave} from './components';
+
+import styles from './App.module.scss';
 
 export function App() {
   return (
@@ -6,7 +8,9 @@ export function App() {
       <Header />
 
       <Main>
-        <p>App goes here.</p>
+        <div className={styles.SvgWaveWrapper}>
+          <SvgWave id="App-Frame-Main-SvgWave" animate />
+        </div>
       </Main>
 
       <Footer>
