@@ -1,0 +1,13 @@
+// @use './styles/shared' as *;
+
+.App {
+}
+
+.SvgWaveWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 2000px;
+  height: auto;
+  border: 1px solid green;
+}
