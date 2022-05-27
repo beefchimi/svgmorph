@@ -12,6 +12,7 @@
 .Children {
   margin-top: var(--spacing-loose);
   padding-top: var(--spacing-loose);
+  width: 100%;
   border-top: var(--border-width) dashed var(--color-surface-bg-invert);
 }
 
