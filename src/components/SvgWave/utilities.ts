@@ -1,7 +1,7 @@
-import {randomInt} from '../../utilities';
+import {randomInteger} from 'beeftools';
 
 export function getPathIndex(max = 1, previous = 0) {
-  const current = randomInt(0, max);
+  const current = randomInteger(0, max);
 
   if (current === previous) {
     return current >= max ? current - 1 : current + 1;

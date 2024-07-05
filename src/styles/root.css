@@ -1,0 +1,154 @@
+/* --- Breakpoints --- */
+
+:root {
+  --width-mobile: 320px;
+  --width-phablet: 480px;
+  --width-tablet: 768px;
+  --width-desktop: 1080px;
+  --width-widescreen: 1366px;
+  --width-ultrawide: 1920px;
+}
+
+/* --- Color --- */
+
+:root {
+  --color-text: #ffffff;
+  --color-text-invert: #000000;
+
+  --color-brand-up: #8991fa;
+  --color-brand: #5863f8;
+  --color-brand-down: #3b48f7;
+
+  --color-surface-bg-up: #ffffff;
+  --color-surface-bg: #efe9f4;
+  --color-surface-bg-down: #d8d4db;
+
+  --color-surface-bg-invert-up: #2d3937;
+  --color-surface-bg-invert: #171d1c;
+  --color-surface-bg-invert-down: #090b0b;
+
+  --color-surface-bg-neutral-up: #776f69;
+  --color-surface-bg-neutral: #615b56;
+  --color-surface-bg-neutral-down: #423e3b;
+
+  --color-text-interactive-up: #62a1e4;
+  --color-text-interactive: #3083dc;
+  --color-text-interactive-down: #2378d1;
+
+  --color-success-up: #70d7a1;
+  --color-success: #45cb85;
+  --color-success-down: #36bf78;
+
+  --color-error-up: #ff3c38;
+  --color-error: #ff221f;
+  --color-error-down: #f50400;
+}
+
+/* --- Spacing --- */
+
+:root {
+  --spacing-tighest: 4px;
+  --spacing-tigher: 8px;
+  --spacing-tight: 12px;
+  --spacing: 16px;
+  --spacing-loose: 20px;
+  --spacing-looser: 24px;
+  --spacing-loosest: 28px;
+}
+
+/* --- Typography --- */
+
+:root {
+  --font-family-common: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+
+  --font-family-code: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+
+  --font-size-h1: 32px;
+  --font-size-h2: 28px;
+  --font-size-h3: 20px;
+
+  --font-size-subtitle: 18px;
+  --font-size-text: 16px;
+  --font-size-subtext: 14px;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+}
+
+/* --- Other --- */
+
+:root {
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --border-common: var(--border-width) solid var(--color-surface-bg-invert);
+
+  --radius-tight: 2px;
+  --radius: 4px;
+  --radius-loose: 8px;
+}
+
+/* --- Components --- */
+
+:root {
+  --header-height: 64px;
+  --footer-height: 120px;
+  --hyperlink-color: var(--color-text-interactive);
+  --icon-size: 20px;
+}
+
+/* --- Motion --- */
+
+:root {
+  --motion-duration: 100ms;
+  --motion-easing: ease-in-out;
+}
+
+@keyframes global-wiggle-animation {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(calc(var(--spacing-tigher) * -1));
+  }
+
+  75% {
+    transform: translateX(var(--spacing-tigher));
+  }
+}
+
+/* --- App --- */
+
+::selection {
+  color: var(--color-text);
+  background-color: var(--color-text-interactive);
+}
+
+html {
+  background-color: var(--color-surface-bg);
+}
+
+html,
+body,
+#ReactRoot {
+  height: 100%;
+}
+
+.icon-wrapper {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: var(--icon-size);
+  height: var(--icon-size);
+
+  > svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: currentColor;
+  }
+}

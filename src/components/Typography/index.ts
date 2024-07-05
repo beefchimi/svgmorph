@@ -1,4 +1,2 @@
-export {Typography} from './Typography';
-export type {TypographyProps} from './Typography';
-
-export {TypographyAlign, TypographySpacing} from './types';
+export {Typography, type TypographyProps} from './Typography.tsx';
+export {TypographyAlign, TypographySpacing} from './types.ts';

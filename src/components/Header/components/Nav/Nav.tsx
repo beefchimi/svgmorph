@@ -1,6 +1,5 @@
 import {useState} from 'react';
-
-import {classNames} from '../../../../utilities';
+import {clx} from 'beeftools';
 
 import styles from './Nav.module.css';
 
@@ -21,14 +20,15 @@ function EmptyState() {
 export function Nav({items = []}: NavProps) {
   const [menuActive, setMenuActive] = useState(false);
 
-  const handleToggleMenu = () => setMenuActive(!menuActive);
+  function handleToggleMenu() {
+    setMenuActive(!menuActive);
+  }
 
-  const menuClassNames = classNames(styles.Menu, {
+  const menuClx = clx(styles.Menu, {
     [styles.menuActive]: menuActive,
   });
 
   const itemsMarkup = items.map((item, index) => (
-    // eslint-disable-next-line react/no-array-index-key
     <li key={`${item}-${index}`} className={styles.Item}>
       <span className={styles.Link}>{item}</span>
     </li>
@@ -46,7 +46,7 @@ export function Nav({items = []}: NavProps) {
         </span>
       </button>
 
-      <ul className={menuClassNames}>{itemsMarkup}</ul>
+      <ul className={menuClx}>{itemsMarkup}</ul>
     </nav>
   );
 }

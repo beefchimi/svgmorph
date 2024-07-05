@@ -1,9 +1,9 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 
-import {svgWavePath, svgWaveMaxIndex} from './paths';
-import {getPathIndex} from './utilities';
+import {svgWavePath, svgWaveMaxIndex} from './paths.ts';
+import {getPathIndex} from './utilities.ts';
 
-import styles from './SvgWave.module.scss';
+import styles from './SvgWave.module.css';
 
 export interface SvgWaveProps {
   id: string;
@@ -53,7 +53,9 @@ export function SvgWave({id, animate = false}: SvgWaveProps) {
       window.clearInterval(intervalId);
     }
 
-    return () => window.clearInterval(intervalId);
+    return () => {
+      window.clearInterval(intervalId);
+    };
   }, [animate, waveAnimation]);
 
   return (

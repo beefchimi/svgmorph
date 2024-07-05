@@ -1,10 +1,15 @@
 import {defineConfig} from 'vite';
-import pluginReact from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react-swc';
 import pluginSvgr from 'vite-plugin-svgr';
 
+// Consider this plugin if it ever supports React:
+// https://github.com/SpiriitLabs/vite-plugin-svg-spritemap/issues/50
+// import VitePluginSvgSpritemap from '@spiriit/vite-plugin-svg-spritemap';
+
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    pluginReact(),
+    react(),
     pluginSvgr({
       // TODO: Configure this plugin
       // https://react-svgr.com/docs/options/
@@ -13,17 +18,19 @@ export default defineConfig({
       // svgrOptions: {},
     }),
   ],
-  resolve: {
-    alias: {
-      // NOTE: This might require ignoring `@typescript-eslint/naming-convention`.
-      // '@/': path.resolve(__dirname, 'src'),
-    },
+  /*
+  test: {
+    setupFiles: 'config/tests-setup',
   },
-  css: {
-    modules: {
-      // If we want to remove the redundancy of the `folder` + base class name,
-      // we could write a function `generateScopedName()` function.
-      generateScopedName: '[folder]_[local]_[hash:base64:6]',
-    },
-  },
+  */
 });
+
+/*
+css: {
+  modules: {
+    // If we want to remove the redundancy of the `folder` + base class name,
+    // we could write a function `generateScopedName()` function.
+    generateScopedName: '[folder]_[local]_[hash:base64:6]',
+  },
+},
+*/

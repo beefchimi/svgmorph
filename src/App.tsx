@@ -1,8 +1,8 @@
 import {Frame, Header, Main, Footer, SvgWave} from './components';
 
-import styles from './App.module.scss';
+import styles from './App.module.css';
 
-export function App() {
+export default function App() {
   return (
     <Frame>
       <Header />
@@ -14,7 +14,7 @@ export function App() {
       </Main>
 
       <Footer>
-        <p>&copy; Curtis Dulmage&trade; &mdash; 2020&ndash;2022</p>
+        <p>&copy; Curtis Dulmage&trade; &mdash; 2020&ndash;2024</p>
       </Footer>
     </Frame>
   );

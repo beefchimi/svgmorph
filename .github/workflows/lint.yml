@@ -1,4 +1,4 @@
-name: Lint
+name: 🤖 Lint
 on: [push]
 
 jobs:
@@ -7,20 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: 🗳️ Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Setup Node 17.x to install with private scope
-        uses: actions/setup-node@v3
+      - name: 🔧 Setup Node 20.x
+        uses: actions/setup-node@v4
         with:
-          version: 17.x
-          registry-url: https://npm.pkg.github.com
-          scope: '@beefchimi'
+          node-version-file: '.nvmrc'
+          cache: 'npm'
 
-      - name: Install Dependencies and build (with cache)
-        uses: bahmutov/npm-install@v1
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 📦 Install dependencies
+        run: npm ci
 
-      - name: Lint
+      - name: 🎨 Lint
         run: npm run lint
+
+      - name: 💄 Prettier
+        run: npm run format

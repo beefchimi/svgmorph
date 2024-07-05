@@ -1,5 +1,4 @@
 .Main {
-  grid-area: main;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +15,7 @@
   border-top: var(--border-width) dashed var(--color-surface-bg-invert);
 }
 
-/* Typography */
+/* --- Typography --- */
 
 .Beefchimi {
   --beefchimi-size: 100px;
@@ -36,6 +35,7 @@
 }
 
 .Thumbnail {
+  max-block-size: unset;
   transition: transform 1s ease-in-out;
 }
 

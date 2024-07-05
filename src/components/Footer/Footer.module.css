@@ -1,7 +1,4 @@
-@use '../../styles/shared' as *;
-
 .Footer {
-  grid-area: footer;
   display: grid;
   align-content: center;
   justify-items: center;
@@ -9,7 +6,7 @@
   min-height: var(--footer-height);
   background-color: var(--color-brand);
 
-  @include breakpoint-after(tablet) {
+  @media (min-width: 768px) {
     grid-template-columns: auto auto;
     justify-items: unset;
     padding: var(--spacing-loose);
@@ -19,12 +16,10 @@
 .socialLinks {
 }
 
-.Children {
-  p {
-    font-size: var(--font-size-subtext);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-  }
+.Children p {
+  font-size: var(--font-size-subtext);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
 }
 
 .SocialList {
@@ -32,7 +27,7 @@
   gap: var(--spacing-tight);
   margin-top: var(--spacing-loose);
 
-  @include breakpoint-after(tablet) {
+  @media (min-width: 768px) {
     justify-content: end;
     margin-top: 0;
   }
@@ -43,6 +38,5 @@
 }
 
 .SocialIcon {
-  @include icon-wrapper-base;
   color: var(--color-text);
 }

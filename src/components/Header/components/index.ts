@@ -1,2 +1,2 @@
-export * from './Logo';
-export * from './Nav';
+export {Logo, type LogoProps} from './Logo';
+export {Nav, type NavProps} from './Nav';
