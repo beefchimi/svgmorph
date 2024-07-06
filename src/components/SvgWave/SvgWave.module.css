@@ -19,10 +19,15 @@
 .Baseline {
 }
 
+.BackgroundTop {
+  transform: scaleY(-1);
+}
+
 .ForegroundBottom {
   transform: scaleY(-1);
 }
 
-.BackgroundTop {
-  transform: scaleY(-1);
+.ForegroundTop,
+.ForegroundBottom {
+  opacity: 0.4;
 }
