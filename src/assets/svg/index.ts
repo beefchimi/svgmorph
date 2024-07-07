@@ -1,1 +1,2 @@
-export {ReactComponent as SvgReactLogo} from './react-logo.svg';
+import SvgReactLogo from './react-logo.svg?react';
+export {SvgReactLogo};

@@ -1,5 +1,6 @@
+import {clx} from 'beeftools';
+
 import {SvgReactLogo} from '../../../../assets/svg';
-import {classNames} from '../../../../utilities';
 import styles from './Logo.module.css';
 
 export interface LogoProps {
@@ -7,12 +8,12 @@ export interface LogoProps {
 }
 
 export function Logo({animate = false}: LogoProps) {
-  const logoClassNames = classNames(styles.Logo, {
+  const logoClx = clx(styles.Logo, {
     [styles.animate]: animate,
   });
 
   return (
-    <div className={logoClassNames}>
+    <div className={logoClx}>
       <SvgReactLogo />
     </div>
   );

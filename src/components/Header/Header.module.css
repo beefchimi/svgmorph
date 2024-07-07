@@ -1,6 +1,5 @@
 .Header {
   position: relative;
-  grid-area: header;
   display: flex;
   gap: var(--spacing-loose);
   align-items: center;

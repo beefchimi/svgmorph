@@ -1,6 +1,11 @@
-export * from './Footer';
-export * from './Frame';
-export * from './Header';
-export * from './Main';
-export * from './SvgWave';
-export * from './Typography';
+export {Footer, type FooterProps} from './Footer';
+export {Frame, type FrameProps} from './Frame';
+export {Header, type HeaderProps} from './Header';
+export {Main, type MainProps} from './Main';
+export {SvgWave, type SvgWaveProps} from './SvgWave';
+export {
+  Typography,
+  type TypographyProps,
+  TypographyAlign,
+  TypographySpacing,
+} from './Typography';

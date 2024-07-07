@@ -1,16 +1,16 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 
-import {svgWavePath, svgWaveMaxIndex} from './paths';
-import {getPathIndex} from './utilities';
+import {svgWavePath, svgWaveMaxIndex} from './paths.ts';
+import {getPathIndex} from './utilities.ts';
 
-import styles from './SvgWave.module.scss';
+import styles from './SvgWave.module.css';
 
 export interface SvgWaveProps {
   id: string;
   animate?: boolean;
 }
 
-const ANIMATION_INTERVAL_DURATION = 300;
+const ANIMATION_INTERVAL_DURATION = 210;
 
 export function SvgWave({id, animate = false}: SvgWaveProps) {
   const [baselinePath, setBaselinePath] = useState(svgWavePath.baseline[0]);
@@ -20,6 +20,11 @@ export function SvgWave({id, animate = false}: SvgWaveProps) {
     svgWavePath.background[0],
   );
   const backgroundPreviousIndex = useRef(0);
+
+  const [foregroundPath, setForegroundPath] = useState(
+    svgWavePath.foreground[0],
+  );
+  const foregroundPreviousIndex = useRef(0);
 
   const waveAnimation = useCallback(() => {
     const baselineIndex = getPathIndex(
@@ -37,6 +42,14 @@ export function SvgWave({id, animate = false}: SvgWaveProps) {
 
     backgroundPreviousIndex.current = backgroundIndex;
     setBackgroundPath(svgWavePath.background[backgroundIndex]);
+
+    const foregroundIndex = getPathIndex(
+      svgWaveMaxIndex.foreground,
+      foregroundPreviousIndex.current,
+    );
+
+    foregroundPreviousIndex.current = foregroundIndex;
+    setForegroundPath(svgWavePath.foreground[foregroundIndex]);
   }, []);
 
   // TODO: Should use `useInterval()` from my `react-hooks` package.
@@ -53,7 +66,9 @@ export function SvgWave({id, animate = false}: SvgWaveProps) {
       window.clearInterval(intervalId);
     }
 
-    return () => window.clearInterval(intervalId);
+    return () => {
+      window.clearInterval(intervalId);
+    };
   }, [animate, waveAnimation]);
 
   return (
@@ -84,13 +99,13 @@ export function SvgWave({id, animate = false}: SvgWaveProps) {
         id={`${id}-ForegroundTop`}
         className={styles.ForegroundTop}
         fill="currentColor"
-        d={svgWavePath.foreground[0]}
+        d={foregroundPath}
       />
       <path
         id={`${id}-ForegroundBottom`}
         className={styles.ForegroundBottom}
         fill="currentColor"
-        d={svgWavePath.foreground[0]}
+        d={foregroundPath}
       />
     </svg>
   );

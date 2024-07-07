@@ -1,2 +1,1 @@
-export {Frame} from './Frame';
-export type {FrameProps} from './Frame';
+export {Frame, type FrameProps} from './Frame.tsx';

@@ -1,3 +1,5 @@
+scrap
+
 # OS files
 .DS_Store
 ._*
@@ -57,6 +59,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+*storybook.log
 
 # Reports
 assets-manifest.json

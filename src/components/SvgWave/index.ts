@@ -1,2 +1,1 @@
-export {SvgWave} from './SvgWave';
-export type {SvgWaveProps} from './SvgWave';
+export {SvgWave, type SvgWaveProps} from './SvgWave.tsx';

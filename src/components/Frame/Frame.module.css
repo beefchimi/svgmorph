@@ -1,0 +1,11 @@
+.Frame {
+  display: grid;
+  grid-auto-rows: auto 1fr auto;
+  width: 100%;
+  min-height: 100dvh;
+  font-family: var(--font-family-common);
+}
+
+.Frame code {
+  font-family: var(--font-family-code);
+}

@@ -1,7 +1,7 @@
 import type {ReactNode} from 'react';
-import {classNames, variationName} from '../../utilities';
+import {clx, vrx} from 'beeftools';
 
-import {TypographyAlign, TypographySpacing} from './types';
+import {TypographyAlign, TypographySpacing} from './types.ts';
 import styles from './Typography.module.css';
 
 export interface TypographyProps {
@@ -15,10 +15,10 @@ export function Typography({
   align = TypographyAlign.Left,
   spacing = TypographySpacing.Base,
 }: TypographyProps) {
-  const typographyClassNames = classNames(styles.Typography, {
-    [variationName('align', align, styles)]: Boolean(align),
-    [variationName('spacing', spacing, styles)]: Boolean(spacing),
+  const typographyClx = clx(styles.Typography, {
+    [vrx('align', align, styles)]: Boolean(align),
+    [vrx('spacing', spacing, styles)]: Boolean(spacing),
   });
 
-  return <div className={typographyClassNames}>{children}</div>;
+  return <div className={typographyClx}>{children}</div>;
 }

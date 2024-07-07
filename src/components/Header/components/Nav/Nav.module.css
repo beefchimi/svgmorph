@@ -55,4 +55,5 @@
 
 .NavEmptyState {
   cursor: no-drop;
+  font-size: var(--font-size-h2);
 }
