@@ -20,7 +20,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22.3.0",
+    "node": ">=22.4.0",
     "npm": ">=10.8.0"
   },
   "scripts": {
@@ -36,7 +36,7 @@
     "test": "echo 'There is no testing suite set up for this app.'"
   },
   "dependencies": {
-    "beeftools": "^0.1.4",
+    "beeftools": "^0.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -45,13 +45,13 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "eslint": "^8.57.0",
-    "eslint-config-love": "^53.0.0",
+    "eslint-config-love": "^62.0.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
-    "globals": "^15.8.0",
-    "prettier": "^3.3.2",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.3",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
     "vite-plugin-svgr": "^4.2.0"
   }
 }
