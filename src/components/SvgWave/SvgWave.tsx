@@ -10,7 +10,8 @@ export interface SvgWaveProps {
   animate?: boolean;
 }
 
-const ANIMATION_INTERVAL_DURATION = 210;
+// Needs to be less than the CSS transition time.
+const ANIMATION_INTERVAL_DURATION = 400 - Math.floor(400 / 3);
 
 export function SvgWave({id, animate = false}: SvgWaveProps) {
   const [baselinePath, setBaselinePath] = useState(svgWavePath.baseline[0]);

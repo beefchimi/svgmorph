@@ -7,6 +7,8 @@
   border: 1px solid green;
 }
 
+/* --- Blob Experiment --- */
+
 .BlobOuter {
   position: fixed;
   inset: 0;
@@ -15,6 +17,8 @@
   place-items: center;
 
   background-color: rgb(255, 0, 0, 0.1);
+
+  display: none;
 }
 
 .BlobInner {
